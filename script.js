@@ -1,26 +1,60 @@
 document.addEventListener("DOMContentLoaded", function () {
     let timeoutId;
+    let mainContent = document.getElementById("mainContent");
+    fetchTopAnime();
+
+    document.getElementById("topAnime").addEventListener("click", function () {
+        fetchTopAnime();
+    });
+    document.getElementById("topManga").addEventListener("click", function () {
+        fetchTopManga();
+    });
 
     document.getElementById("searchInput").addEventListener("input", function () {
         clearTimeout(timeoutId);
-        timeoutId = setTimeout(fetchResults, 500);
+        timeoutId = setTimeout(fetchSearchResults, 500);
     });
 
-    async function fetchResults() {
-        const searchTerm = document.getElementById("searchInput").value.trim();
-        const mainContent = document.getElementById("mainContent");
+    //Fetch Top Anime
+    async function fetchTopAnime() {
+        let apiUrl = `https://api.jikan.moe/v4/top/anime`;
+
+        try {
+            let response = await fetch(apiUrl);
+            let data = await response.json();
+            displayResults(data.data, mainContent);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    //Fetch Top Manga
+    async function fetchTopManga() {
+        let apiUrl = `https://api.jikan.moe/v4/top/manga`;
+
+        try {
+            let response = await fetch(apiUrl);
+            let data = await response.json();
+            displayResults(data.data, mainContent);
+        } catch (error) {
+            console.error("Error fetching data:", error);
+        }
+    }
+
+    //Fetch Search Results
+    async function fetchSearchResults() {
+        let searchTerm = document.getElementById("searchInput").value.trim();
 
         if (searchTerm === "") {
-            mainContent.innerHTML = ""; // Clear main content
+            fetchTopAnime();
             return;
         }
 
-        const apiUrl = `https://api.jikan.moe/v4/anime?q=${searchTerm}`;
+        let apiUrl = `https://api.jikan.moe/v4/anime?q=${searchTerm}`;
 
         try {
-            const response = await fetch(apiUrl);
-            const data = await response.json();
-            console.log(data.data);
+            let response = await fetch(apiUrl);
+            let data = await response.json();
             displayResults(data.data, mainContent);
         } catch (error) {
             console.error("Error fetching data:", error);
