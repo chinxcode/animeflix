@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1f2937;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.root {
+    width: 80%;
+}
+
+header,
+nav,
+main,
+footer {
+    padding: 1rem;
+}
+
+header {
+    background-color: #111827;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #4d4d4d;
+    border-radius: 4px;
+    background-color: #111827;
+    color: #ffffff;
+}
+
+.buttons {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.buttons button {
+    background-color: #228b22;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+nav {
+    background-color: #111827;
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    padding-top: 0;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+nav a {
+    color: #9e9e9e;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+}
+
+.content-item {
+    background-color: #111827;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.content-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.content-item-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-item-info h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.content-item-info p {
+    color: #9e9e9e;
+    max-height: 6.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.result-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.details-button {
+    background-color: #ffbade;
+    color: black;
+    font-size: 1rem;
+    font-weight: 400;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #111827;
+    text-align: center;
+    color: #9e9e9e;
+}
