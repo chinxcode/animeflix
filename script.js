@@ -123,4 +123,83 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(resultContainer);
         });
     }
+
+    //Responsive
+    const navItems = document.querySelectorAll(".nav-item");
+    const menuButton = document.createElement("button");
+    menuButton.classList.add("menu-button");
+    menuButton.textContent = "Menu";
+
+    let isMenuOpen = false;
+    menuButton.addEventListener("click", function () {
+        isMenuOpen = !isMenuOpen;
+        adjustNavLayout();
+    });
+
+    // Check screen size on load and adjust nav accordingly
+    adjustNavLayout();
+
+    window.addEventListener("resize", function () {
+        adjustContentGrid();
+        adjustHeaderLayout();
+        adjustNavLayout();
+    });
+
+    function adjustContentGrid() {
+        const mainContent = document.getElementById("mainContent");
+        const contentItems = mainContent.getElementsByClassName("content-item");
+
+        if (window.innerWidth <= 960) {
+            for (let i = 0; i < contentItems.length; i++) {
+                contentItems[i].style.maxWidth = "100%";
+            }
+        } else {
+            for (let i = 0; i < contentItems.length; i++) {
+                contentItems[i].style.maxWidth = "none";
+            }
+        }
+    }
+
+    function adjustHeaderLayout() {
+        const searchContainer = document.querySelector(".search-container");
+        const buttons = document.querySelector(".buttons");
+
+        if (window.innerWidth <= 960) {
+            searchContainer.style.width = "100%";
+            buttons.style.width = "100%";
+            buttons.style.justifyContent = "center";
+            buttons.style.marginBottom = "1rem";
+        } else {
+            searchContainer.style.width = "50%";
+            buttons.style.width = "20%";
+            buttons.style.justifyContent = "space-around";
+            buttons.style.marginBottom = "0";
+        }
+    }
+
+    function adjustNavLayout() {
+        let head = document.querySelector("header .buttons");
+
+        if (window.innerWidth <= 960) {
+            // Add menu button if not already present
+            if (!head.contains(menuButton)) {
+                head.append(menuButton);
+            }
+
+            // Toggle nav items visibility based on menu state
+            navItems.forEach((item) => {
+                item.style.display = isMenuOpen ? "block" : "none";
+            });
+        } else {
+            // Remove menu button if present
+            if (head.contains(menuButton)) {
+                head.removeChild(menuButton);
+            }
+
+            // Show all nav items
+            navItems.forEach((item) => {
+                item.style.display = "block";
+            });
+        }
+    }
 });

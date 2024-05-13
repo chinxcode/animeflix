@@ -55,7 +55,7 @@ header {
     width: 20%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    gap: 1rem;
 }
 
 .buttons button {
@@ -156,4 +156,84 @@ footer {
     background-color: #111827;
     text-align: center;
     color: #9e9e9e;
+}
+
+/* Responsive */
+/* Medium Screens */
+@media (max-width: 1140px) {
+    .root {
+        width: 90%;
+    }
+
+    .search-container {
+        width: 60%;
+    }
+
+    .buttons {
+        width: 25%;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Small Screens */
+@media (max-width: 960px) {
+    .root {
+        width: 95%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .nav-item {
+        padding: 0.5rem 0;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 560px) {
+    nav ul {
+        padding: 0.5rem 0;
+    }
+
+    .nav-item {
+        padding: 0.25rem 0;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-item img {
+        height: 200px;
+    }
 }
