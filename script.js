@@ -97,29 +97,12 @@ document.addEventListener("DOMContentLoaded", function () {
             synopsisElement.textContent = synopsis;
             resultInfo.appendChild(synopsisElement);
 
-            const resultButtons = document.createElement("div");
-            resultButtons.classList.add("result-buttons");
-
-            const detailsButton = document.createElement("button");
-            detailsButton.classList.add("details-button");
-            detailsButton.textContent = "View Details";
-            detailsButton.addEventListener("click", function () {
-                window.open(`https://myanimelist.net/anime/${malId}`, "_blank");
-            });
-            resultButtons.appendChild(detailsButton);
-
-            // const watchButton = document.createElement("button");
-            // watchButton.classList.add("details-button");
-            // watchButton.textContent = "Watch Now";
-            // watchButton.addEventListener("click", function () {
-            //     // Open the page where users can watch the anime
-            //     // Replace 'https://example.com/watch/' with the actual URL
-            //     window.open(`https://example.com/watch/${malId}`, "_blank");
-            // });
-            // resultButtons.appendChild(watchButton);
-
-            resultInfo.appendChild(resultButtons);
             resultContainer.appendChild(resultInfo);
+
+            resultContainer.addEventListener("click", function () {
+                window.open(`view-details.html?id=${result.mal_id}`, "_blank");
+            });
+
             container.appendChild(resultContainer);
         });
     }
