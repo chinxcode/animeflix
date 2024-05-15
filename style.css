@@ -141,6 +141,7 @@ nav a {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    margin-top: 2rem;
     padding: 2rem;
     background-color: #111827;
     color: #fff;
@@ -271,8 +272,10 @@ footer {
     padding: 1.3rem;
     border: 0.1rem solid #888;
     border-radius: 1.5rem;
-    width: 100%;
-    max-width: 800px;
+    max-width: 70%;
+    max-height: 85%;
+    overflow-y: auto;
+    overflow-x: hidden;
     position: relative;
 }
 
@@ -352,7 +355,7 @@ footer {
 
     .modal-content {
         margin: 15% auto;
-        width: 90%;
+        max-width: 90%;
     }
 }
 
