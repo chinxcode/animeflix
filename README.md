@@ -71,5 +71,5 @@ We reserve the right to revise these terms at any time without notice. By using 
 
 ### Contact Information
 
-If you have any questions or concerns regarding the legal information on this website, please contact us at [your_email@example.com].
+If you have any questions or concerns regarding the legal information on this website, please contact us at [sachinxcode@gmail.com].
 
