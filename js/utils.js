@@ -29,21 +29,20 @@ export function displayAnimeDetails(animeData) {
     const animePosterData = document.createElement("div");
     animePosterData.classList.add("anime-poster-data");
     animePosterData.innerHTML = `
-        <p><strong>Trailer:</strong></p>
-        <iframe src="https://www.youtube.com/embed/${animeData.trailer.youtube_id}"></iframe>
-        <p><strong>Score:</strong> ${animeData.score}</p>
+        <h1>${animeData.title}</h1>
+        <p><strong>Rating:</strong> ${animeData.score}</p>
+        <p><strong>Rated By:</strong> ${animeData.scored_by}</p>
         <p><strong>Rank:</strong> ${animeData.rank}</p>
         <p><strong>Popularity:</strong> ${animeData.popularity}</p>
+        <p><strong>Current Status:</strong> ${animeData.status}</p>
         <p><strong>Members:</strong> ${animeData.members}</p>
+        <p><strong>View On <a href="${animeData.url}" target="_blank">MyAnimeList</a></strong></p>
         `;
 
     animePosterContainer.appendChild(animePosterData);
 
     const animeInfoContainer = document.createElement("div");
     animeInfoContainer.classList.add("anime-info");
-
-    const animeTitle = document.createElement("h1");
-    animeTitle.textContent = animeData.title;
 
     const animeSynopsis = document.createElement("p");
     animeSynopsis.textContent = animeData.synopsis;
@@ -77,6 +76,8 @@ export function displayAnimeDetails(animeData) {
             .join(", ")}</p>
         <p><strong>Duration:</strong> ${animeData.duration}</p>
         <p><strong>Rating:</strong> ${animeData.rating}</p>
+        <p><strong>Trailer:</strong></p>
+        <iframe src="https://www.youtube.com/embed/${animeData.trailer.youtube_id}"></iframe>
         `;
 
     const animeStreamsContainer = document.createElement("div");
@@ -101,7 +102,6 @@ export function displayAnimeDetails(animeData) {
             .join("")}
     `;
 
-    animeInfoContainer.appendChild(animeTitle);
     animeInfoContainer.appendChild(animeSynopsis);
     animeInfoContainer.appendChild(animeDetailsInfo);
     animeInfoContainer.appendChild(animeStreamsContainer);
