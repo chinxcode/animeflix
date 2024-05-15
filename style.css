@@ -185,7 +185,7 @@ nav a {
 
 .anime-info h1 {
     font-size: 2rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
 }
 
 .anime-details-info {
@@ -193,7 +193,7 @@ nav a {
 }
 
 .anime-details-info p {
-    margin-bottom: 0.625rem;
+    margin-bottom: 0.6rem;
 }
 
 .anime-details-info a {
@@ -212,7 +212,11 @@ nav a {
 .anime-streams h2,
 .anime-relations h2 {
     font-size: 1.5rem;
-    margin-bottom: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.anime-relations p {
+    margin-bottom: 0.6rem;
 }
 
 .anime-streams a,

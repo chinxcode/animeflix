@@ -30,7 +30,7 @@ export function displayAnimeDetails(animeData) {
     animePosterData.classList.add("anime-poster-data");
     animePosterData.innerHTML = `
         <p><strong>Trailer:</strong></p>
-        <iframe src="${animeData.trailer.embed_url}"></iframe>
+        <iframe src="https://www.youtube.com/embed/${animeData.trailer.youtube_id}"></iframe>
         <p><strong>Score:</strong> ${animeData.score}</p>
         <p><strong>Rank:</strong> ${animeData.rank}</p>
         <p><strong>Popularity:</strong> ${animeData.popularity}</p>
@@ -51,12 +51,15 @@ export function displayAnimeDetails(animeData) {
     const animeDetailsInfo = document.createElement("div");
     animeDetailsInfo.classList.add("anime-details-info");
 
+    const airedFrom = new Date(animeData.aired.from).toLocaleDateString("en-IN");
+    const airedTo = new Date(animeData.aired.to).toLocaleDateString("en-IN");
+
     animeDetailsInfo.innerHTML = `
         <p><strong>Also known as:</strong> ${animeData.title_japanese}</p>
         <p><strong>Type:</strong> ${animeData.type}</p>
         <p><strong>Episodes:</strong> ${animeData.episodes}</p>
         <p><strong>Status:</strong> ${animeData.status}</p>
-        <p><strong>Aired:</strong> ${animeData.aired.from} to ${animeData.aired.to}</p>
+        <p><strong>Aired:</strong> ${airedFrom} to ${airedTo}</p>
         <p><strong>Premiered:</strong> ${animeData.season} ${animeData.year}</p>
         <p><strong>Broadcast:</strong> ${animeData.broadcast.day} at ${animeData.broadcast.time} (${animeData.broadcast.timezone})</p>
         <p><strong>Producers:</strong> ${animeData.producers
@@ -91,7 +94,7 @@ export function displayAnimeDetails(animeData) {
             .map(
                 (relation) => `
             <p><strong>${relation.relation}:</strong>
-            ${relation.entry.map((entry) => `<a href="${entry.url}" target="_blank">${entry.name}</a>`).join(", ")}
+            ${relation.entry.map((entry) => `<a href="#" data-mal-id="${entry.mal_id}" class="relation-link">${entry.name}</a>`).join(", ")}
             </p>
         `
             )
@@ -108,4 +111,15 @@ export function displayAnimeDetails(animeData) {
     animeDetailsSection.appendChild(animeInfoContainer);
 
     animeDetailsContainer.appendChild(animeDetailsSection);
+
+    const relationLinks = document.querySelectorAll(".relation-link");
+    relationLinks.forEach((link) => {
+        link.addEventListener("click", (event) => {
+            event.preventDefault();
+            const malId = event.target.dataset.malId;
+            fetchAnimeDetails(malId).then((data) => {
+                displayAnimeDetails(data);
+            });
+        });
+    });
 }
