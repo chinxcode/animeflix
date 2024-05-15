@@ -1,4 +1,4 @@
-# AnimeFlix ![animeflix-icon](https://github.com/chinxcode/animeflix/assets/169078045/664ed1f3-d394-42d1-8fc9-1265e7f2b961)
+# AnimeFlix 
 
 
 AnimeFlix is a website where you can explore information about anime and manga, watch trailers, and discover streaming platforms to enjoy your favorite shows.
@@ -37,8 +37,8 @@ To run the website locally, follow these steps:
 
 ## Screenshots
 
-![Screenshot 1](assets/screenshot1.png)
-![Screenshot 2](assets/screenshot2.png)
+![Screenshot 1](public/screenshot1.png)
+![Screenshot 2](public/screenshot2.png)
 
 ## Contributions
 
