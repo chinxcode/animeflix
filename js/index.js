@@ -15,8 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         timeoutId = setTimeout(fetchSearchResults, 500);
     });
 
-    adjustNavLayout();
-
     const menuButton = document.createElement("button");
     menuButton.classList.add("menu-button");
     menuButton.textContent = "Menu";
