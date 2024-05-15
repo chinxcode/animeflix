@@ -1,6 +1,3 @@
-import { fetchAnimeDetails } from "./utils.js";
-import { openModal } from "./modal.js";
-
 export async function fetchTopAnime() {
     let apiUrl = `https://api.jikan.moe/v4/top/anime`;
 
@@ -45,7 +42,7 @@ export async function fetchSearchResults() {
 }
 
 export function displayResults(results, container) {
-    container.innerHTML = ""; // Clear previous results
+    container.innerHTML = "";
 
     if (results.length === 0) {
         const noResultsMessage = document.createElement("div");

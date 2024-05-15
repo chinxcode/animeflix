@@ -103,6 +103,14 @@ nav a {
     border-radius: 1rem;
     overflow: hidden;
     cursor: pointer;
+    filter: grayscale(50%);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.content-item:hover {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(207, 151, 151, 0.2);
 }
 
 .content-item img {
@@ -151,7 +159,7 @@ nav a {
 }
 
 .anime-info {
-    width: 55%;
+    width: 65%;
     color: #ffffff;
 }
 
@@ -227,18 +235,6 @@ footer {
     cursor: pointer;
 }
 
-/* Responsive modal styles */
-@media (max-width: 960px) {
-    .modal-content {
-        margin: 15% auto;
-        width: 90%;
-    }
-    .anime-details {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
 /* Responsive */
 /* Medium Screens */
 @media (max-width: 1140px) {
@@ -297,6 +293,15 @@ footer {
 
     .content-grid {
         grid-template-columns: repeat(3, 1fr);
+    }
+
+    .modal-content {
+        margin: 15% auto;
+        width: 90%;
+    }
+    .anime-details {
+        flex-direction: column;
+        align-items: center;
     }
 }
 

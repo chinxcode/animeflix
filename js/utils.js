@@ -12,9 +12,8 @@ export async function fetchAnimeDetails(id) {
 
 export function displayAnimeDetails(animeData) {
     const animeDetailsContainer = document.querySelector(".anime-details-container");
-    animeDetailsContainer.innerHTML = ""; // Clear previous details
+    animeDetailsContainer.innerHTML = "";
 
-    // Create the main anime details section
     const animeDetailsSection = document.createElement("div");
     animeDetailsSection.classList.add("anime-details");
 
