@@ -1,5 +1,39 @@
 export async function fetchTopAnime() {
-    let apiUrl = `https://api.jikan.moe/v4/top/anime`;
+    let apiUrl = `https://api.jikan.moe/v4/top/anime?filter=bypopularity`;
+
+    try {
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+        displayResults(data.data, document.getElementById("mainContent"));
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
+
+export async function fetchOngoingAnime() {
+    let apiUrl = `https://api.jikan.moe/v4/anime?status=airing`;
+
+    try {
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+        displayResults(data.data, document.getElementById("mainContent"));
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
+export async function fetchUpComingAnime() {
+    let apiUrl = `https://api.jikan.moe/v4/anime?status=upcoming&order_by=score&sort=desc`;
+
+    try {
+        let response = await fetch(apiUrl);
+        let data = await response.json();
+        displayResults(data.data, document.getElementById("mainContent"));
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
+export async function fetchMovieResults() {
+    let apiUrl = `https://api.jikan.moe/v4/anime?type=movie&order_by=score&sort=desc`;
 
     try {
         let response = await fetch(apiUrl);

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Animeflix</title>
+        <link rel="shortcut icon" href="../public/animeflix-icon.ico" type="image/x-icon" />
+        <link rel="stylesheet" href="./assets/style.css" />
+        <script type="module" src="./js/index.js"></script>
+    </head>
+    <body>
+        <div class="root">
+            <header>
+                <div class="logo">
+                    <img src="../public/animeflix-logo.png" alt="AnimeFlix" />
+                </div>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search for anime..." />
+                </div>
+                <div class="buttons">
+                    <a href="../anime/anime.html"><button id="topAnime">Anime</button></a>
+                    <a href="../manga/manga.html"><button id="topManga">Manga</button></a>
+                </div>
+            </header>
+
+            <nav>
+                <ul>
+                    <li class="nav-item"><a href="/anime/anime.html">HOME</a></li>
+                    <li class="nav-item"><a href="/anime/pages/genre.html">GENRE</a></li>
+                    <li class="nav-item"><a href="/anime/pages/ongoing.html">ONGOING</a></li>
+                    <li class="nav-item"><a href="/anime/pages/upcoming.html">UPCOMING</a></li>
+                    <li class="nav-item"><a href="/anime/pages/movie.html">MOVIES</a></li>
+                    <!-- <li class="nav-item"><a href="#">REQUEST ANIME</a></li> -->
+                    <li class="nav-item"><a href="#">CONTACT US</a></li>
+                </ul>
+            </nav>
+
+            <main>
+                <div id="mainContent" class="content-grid"></div>
+            </main>
+        </div>
+        <footer>
+            <p>
+                Content on this site belongs to respective owners. I, @chinxcode, do not claim ownership. For inquiries, contact the
+                copyright holders.
+            </p>
+        </footer>
+
+        <!-- Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="anime-details-container"></div>
+            </div>
+        </div>
+    </body>
+</html>

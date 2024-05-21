@@ -1,0 +1,397 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    font-family: Arial, sans-serif;
+    background-color: #1f2937;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.root {
+    width: 80%;
+    margin-bottom: 5rem;
+}
+
+header,
+nav ul,
+main,
+footer {
+    padding: 1rem;
+}
+
+header {
+    background-color: #111827;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.search-container {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+}
+
+#searchInput {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.8rem 2rem;
+    border: 1px solid #4d4d4d;
+    border-radius: 2rem;
+    background-color: #111827;
+    color: #ffffff;
+}
+
+.buttons {
+    width: 20%;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.buttons button {
+    background-color: #d35151;
+    color: #fff;
+    font-size: 1rem;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+nav ul {
+    background-color: #111827;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-top: 0;
+    border-bottom-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+}
+
+nav a {
+    color: #9e9e9e;
+    text-decoration: none;
+}
+
+.nav-item {
+    padding: 0 1rem;
+    text-align: center;
+    list-style: none;
+    &:hover {
+        color: #ffffff;
+    }
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.content-item {
+    background-color: #111827;
+    border-radius: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(207, 151, 151, 0.2);
+}
+
+.content-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+.content-item-info {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content-item-info h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.content-item-info p {
+    color: #9e9e9e;
+    max-height: 6.7rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.anime-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: #111827;
+    color: #fff;
+}
+
+.anime-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.anime-poster {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
+.anime-poster img {
+    width: 40%;
+    height: auto;
+    border-radius: 0.5rem;
+}
+
+.anime-poster-data h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.anime-poster-data {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.anime-poster-data a {
+    color: #00b8d4;
+    text-decoration: none;
+}
+
+.anime-poster-data a:hover {
+    text-decoration: underline;
+}
+
+.anime-info {
+    flex-grow: 1;
+}
+
+.anime-details-info iframe {
+    width: 100%;
+    height: 20rem;
+}
+
+.anime-details-info {
+    margin-top: 1.25rem;
+}
+
+.anime-details-info p {
+    margin-bottom: 0.6rem;
+}
+
+.anime-details-info a {
+    color: #00b8d4;
+    text-decoration: none;
+}
+
+.anime-details-info a:hover {
+    text-decoration: underline;
+}
+
+.anime-streams {
+    margin-top: 2.5rem;
+}
+
+.anime-streams h2,
+.anime-relations h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.anime-relations p {
+    margin-bottom: 0.6rem;
+}
+
+.anime-streams a,
+.anime-relations a {
+    color: #00b8d4;
+    text-decoration: none;
+    margin-right: 0.625rem;
+}
+
+.anime-streams a:hover,
+.anime-relations a:hover {
+    text-decoration: underline;
+}
+
+.anime-relations {
+    margin-top: 2.5rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #111827;
+    text-align: center;
+    color: #9e9e9e;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+    background-color: #111827;
+    margin: 5% auto;
+    padding: 1.3rem;
+    border: 0.1rem solid #888;
+    border-radius: 1.5rem;
+    max-width: 70%;
+    max-height: 85%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    z-index: 3;
+    position: fixed;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive */
+/* Medium Screens */
+@media (max-width: 1140px) {
+    .root {
+        width: 90%;
+    }
+
+    .search-container {
+        width: 60%;
+    }
+
+    .buttons {
+        width: 25%;
+    }
+
+    nav ul {
+        gap: 1rem;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Small Screens */
+@media (max-width: 960px) {
+    .root {
+        width: 95%;
+    }
+
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .search-container {
+        width: 80%;
+        margin-bottom: 1rem;
+    }
+
+    .buttons {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    .nav-item {
+        padding: 0.5rem 0;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .modal-content {
+        margin: 15% auto;
+        max-width: 90%;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 660px) {
+    nav ul {
+        padding: 0.5rem 0;
+    }
+
+    .nav-item {
+        padding: 0.25rem 0;
+    }
+
+    .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .content-item img {
+        height: 200px;
+    }
+
+    .anime-details-container {
+        padding: 0.5rem;
+    }
+
+    .anime-poster {
+        gap: 0.5rem;
+    }
+    .anime-poster img {
+        width: 60%;
+    }
+    .anime-details-info iframe {
+        height: 30%;
+    }
+    .anime-poster-data h1 {
+        font-size: 1.5rem;
+    }
+}

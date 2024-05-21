@@ -1,14 +1,37 @@
-import { fetchTopAnime, fetchTopManga, fetchSearchResults, displayResults } from "./search.js";
+import {
+    fetchTopAnime,
+    fetchTopManga,
+    fetchSearchResults,
+    displayResults,
+    fetchOngoingAnime,
+    fetchMovieResults,
+    fetchUpComingAnime,
+} from "./search.js";
 import { adjustNavLayout, adjustContentGrid, adjustHeaderLayout } from "./responsive.js";
 import { openModal, closeModal } from "./modal.js";
 
 document.addEventListener("DOMContentLoaded", function () {
     let timeoutId;
     let mainContent = document.getElementById("mainContent");
-    fetchTopAnime();
 
-    document.getElementById("topAnime").addEventListener("click", fetchTopAnime);
-    document.getElementById("topManga").addEventListener("click", fetchTopManga);
+    var currentPage = window.location.pathname;
+
+    if (currentPage.endsWith("anime.html")) {
+        fetchTopAnime();
+    } else if (currentPage.endsWith("manga.html")) {
+        fetchTopManga();
+    } else if (currentPage.endsWith("ongoing.html")) {
+        fetchOngoingAnime();
+    } else if (currentPage.endsWith("movie.html")) {
+        fetchMovieResults();
+    } else if (currentPage.endsWith("upcoming.html")) {
+        fetchUpComingAnime();
+    } else {
+        mainContent.innerHTML = "PAGE NOT FOUND";
+    }
+
+    // document.getElementById("topAnime").addEventListener("click", fetchTopAnime);
+    // document.getElementById("topManga").addEventListener("click", fetchTopManga);
 
     document.getElementById("searchInput").addEventListener("input", function () {
         clearTimeout(timeoutId);
