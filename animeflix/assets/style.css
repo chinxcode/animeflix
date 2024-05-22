@@ -313,6 +313,7 @@ footer {
     max-width: 70%;
     max-height: 85%;
     overflow-y: auto;
+    scrollbar-width: none;
     overflow-x: hidden;
     position: relative;
 }

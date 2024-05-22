@@ -57,7 +57,7 @@ export function displayAnimeDetails(animeData) {
         <p><strong>Also known as:</strong> ${animeData.title_japanese}</p>
         <p><strong>Type:</strong> ${animeData.type}</p>
         <p><strong>Volumes:</strong> ${animeData.volumes}</p>
-        <p><strong>Episodes:</strong> ${animeData.chapters}</p>
+        <p><strong>Chapters:</strong> ${animeData.chapters}</p>
         <p><strong>Status:</strong> ${animeData.status}</p>
         <p><strong>Aired:</strong> ${airedFrom} to ${airedTo}</p>
         <p><strong>Producers:</strong> ${animeData.authors
