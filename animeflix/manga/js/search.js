@@ -1,5 +1,5 @@
 export async function fetchTopAnime() {
-    let apiUrl = `https://api.jikan.moe/v4/top/anime?filter=bypopularity`;
+    let apiUrl = `https://api.jikan.moe/v4/top/manga?filter=bypopularity`;
 
     try {
         let response = await fetch(apiUrl);
@@ -11,7 +11,7 @@ export async function fetchTopAnime() {
 }
 
 export async function fetchOngoingAnime() {
-    let apiUrl = `https://api.jikan.moe/v4/anime?status=airing`;
+    let apiUrl = `https://api.jikan.moe/v4/manga?status=publishing`;
 
     try {
         let response = await fetch(apiUrl);
@@ -23,7 +23,7 @@ export async function fetchOngoingAnime() {
 }
 
 export async function fetchUpComingAnime() {
-    let apiUrl = `https://api.jikan.moe/v4/anime?status=upcoming&order_by=score&sort=desc`;
+    let apiUrl = `https://api.jikan.moe/v4/manga?status=complete&order_by=score&sort=desc`;
 
     try {
         let response = await fetch(apiUrl);
@@ -35,7 +35,7 @@ export async function fetchUpComingAnime() {
 }
 
 export async function fetchMovieResults() {
-    let apiUrl = `https://api.jikan.moe/v4/anime?type=movie&order_by=score&sort=desc`;
+    let apiUrl = `https://api.jikan.moe/v4/manga?type=novel&order_by=score&sort=desc`;
 
     try {
         let response = await fetch(apiUrl);
@@ -54,7 +54,7 @@ export async function fetchSearchResults() {
         return;
     }
 
-    let apiUrl = `https://api.jikan.moe/v4/anime?q=${searchTerm}`;
+    let apiUrl = `https://api.jikan.moe/v4/manga?q=${searchTerm}`;
 
     try {
         let response = await fetch(apiUrl);
@@ -66,7 +66,7 @@ export async function fetchSearchResults() {
 }
 
 export async function fetchGenres() {
-    let apiUrl = "https://api.jikan.moe/v4/genres/anime?filter=genres&order_by=score&sort=desc";
+    let apiUrl = "https://api.jikan.moe/v4/genres/manga?filter=genres&order_by=score&sort=desc";
 
     try {
         let response = await fetch(apiUrl);
@@ -85,7 +85,7 @@ function displayGenres(genreData, container) {
         genreItem.classList.add("genre-item");
         genreItem.innerHTML = `
             <h2>${genre.name}</h2>
-            <p>Anime: ${genre.count}</p>
+            <p>Manga: ${genre.count}</p>
         `;
 
         genreItem.addEventListener("click", () => {
@@ -98,7 +98,7 @@ function displayGenres(genreData, container) {
 }
 
 export async function fetchAnimeByGenre(genreId) {
-    let apiUrl = `https://api.jikan.moe/v4/anime?genres=${genreId}`;
+    let apiUrl = `https://api.jikan.moe/v4/manga?genres=${genreId}`;
 
     try {
         let response = await fetch(apiUrl);

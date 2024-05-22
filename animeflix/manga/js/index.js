@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     var currentPage = window.location.pathname;
 
-    if (currentPage.endsWith("anime.html")) {
+    if (currentPage.endsWith("manga.html")) {
         fetchTopAnime();
     } else if (currentPage.endsWith("ongoing.html")) {
         fetchOngoingAnime();
