@@ -2,11 +2,11 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
 body {
     position: relative;
-    font-family: Arial, sans-serif;
     background-color: #1f2937;
     color: #ffffff;
     display: flex;
@@ -242,6 +242,40 @@ nav a {
 
 .anime-relations {
     margin-top: 2.5rem;
+}
+
+/* GENRE GRID */
+
+.genre-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
+    grid-gap: 2rem;
+    padding: 2rem;
+}
+
+.genre-item {
+    background-color: #111827;
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.genre-item:hover {
+    transform: scale(1.05);
+    background-color: #1f2937;
+    box-shadow: 0 6px 10px rgba(255, 255, 255, 0.3);
+}
+
+.genre-item h2 {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.genre-item p {
+    color: #ccc;
+    font-size: 1rem;
 }
 
 footer {

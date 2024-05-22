@@ -2,10 +2,10 @@ import {
     fetchTopAnime,
     fetchTopManga,
     fetchSearchResults,
-    displayResults,
     fetchOngoingAnime,
     fetchMovieResults,
     fetchUpComingAnime,
+    fetchGenres,
 } from "./search.js";
 import { adjustNavLayout, adjustContentGrid, adjustHeaderLayout } from "./responsive.js";
 import { openModal, closeModal } from "./modal.js";
@@ -26,6 +26,8 @@ document.addEventListener("DOMContentLoaded", function () {
         fetchMovieResults();
     } else if (currentPage.endsWith("upcoming.html")) {
         fetchUpComingAnime();
+    } else if (currentPage.endsWith("genre.html")) {
+        fetchGenres();
     } else {
         mainContent.innerHTML = "PAGE NOT FOUND";
     }
